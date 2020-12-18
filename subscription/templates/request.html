@@ -1,0 +1,32 @@
+{% extends "base/user_menu.html" %}
+
+{% block data %}
+    <div class="form main-box-style">
+        <h1>Заявка на подписку</h1>
+        <form action="." method="post">
+            {{ request_form.as_p }}
+            {% csrf_token %}
+            <p><input type="submit" value="Отправить"></p>
+        </form>
+    </div>
+    <script>
+        const onChange = () => {
+            let printEditionId = $("select[name='print_edition']").val();
+            let duration = parseInt($("select[name='duration']").val());
+            if (printEditionId)
+                $.ajax({
+                    method: "GET",
+                    url: `http://${window.location.hostname}:8000/print-edition/${printEditionId}/price`,
+                }).done((response) => {
+                    if (duration)
+                        $("input[name='price']").val(response["price"] * duration);
+                });
+        };
+        $(document).ready(
+            () => {
+                $("select[name='print_edition']").change(() => onChange());
+                $("select[name='duration']").change(() => onChange());
+            }
+        );
+    </script>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base/user_menu.html" %}
+
+{% block data %}
+    <table class="data-table">
+        <tr>
+            <td>
+                Издание
+            </td>
+            <td>
+                Дата начала
+            </td>
+            <td>
+                Длительность
+            </td>
+            <td>
+                Стоимость
+            </td>
+            <td>
+                Статус
+            </td>
+        </tr>
+        {% for request in requests %}
+            <tr>
+                <td>
+                    {{ request.print_edition.name }}
+                </td>
+                <td>
+                    {{ request.created_date }}
+                </td>
+                <td>
+                    {{ request.duration }}
+                </td>
+                <td>
+                    {{ request.price }}
+                </td>
+                <td>
+                    {{ request.status }}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

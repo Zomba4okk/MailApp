@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <title>Mail App</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static "form.css" %}">
+    <link rel="stylesheet" href="{% static "menu.css" %}">
+    <link rel="stylesheet" href="{% static "base.css" %}">
+    <link rel="stylesheet" href="{% static "table.css" %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<body>
+<div id="content">
+    {% block menu %}
+    {% endblock %}
+    {% block data %}
+    {% endblock %}
+</div>
+</body>
+</html>

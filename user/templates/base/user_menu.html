@@ -1,0 +1,15 @@
+{% extends 'base/base.html' %}
+
+{% block menu %}
+    <div class="menu">
+        <a href="{% url 'request' %}" class="main-box-style main-box-style-clickable">
+            Создать заявку
+        </a>
+        <a href="{% url 'requests' %}" class="main-box-style main-box-style-clickable">
+            Свои заявки
+        </a>
+        <a href="{% url 'logout' %}" class="main-box-style main-box-style-clickable">
+           Выйти
+        </a>
+    </div>
+{% endblock %}

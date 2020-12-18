@@ -1,0 +1,48 @@
+{% extends "base/staff_menu.html" %}
+
+{% block data %}
+    <table class="data-table">
+        <tr>
+            <td>
+                Издание
+            </td>
+            <td>
+                Фамилия
+            </td>
+            <td>
+                Имя
+            </td>
+            <td>
+                Отчество
+            </td>
+            <td>
+                Адрес
+            </td>
+            <td>
+                Телефон
+            </td>
+        </tr>
+        {% for subscription in subscriptions %}
+            <tr>
+                <td>
+                    {{ subscription.print_edition.name }}
+                </td>
+                <td>
+                    {{ subscription.user.last_name }}
+                </td>
+                <td>
+                    {{ subscription.user.first_name }}
+                </td>
+                <td>
+                    {{ subscription.user.middle_name }}
+                </td>
+                <td>
+                    {{ subscription.user.address }}
+                </td>
+                <td>
+                    {{ subscription.user.phone }}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

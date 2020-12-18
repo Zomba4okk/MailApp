@@ -1,0 +1,22 @@
+.menu {
+    height: 5vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5vh;
+}
+
+.menu > a {
+    width: 32%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-size: 2vh;
+    font-weight: bold;
+    text-decoration: None;
+}
+
+.staff-menu > a {
+    width: 24%;
+}

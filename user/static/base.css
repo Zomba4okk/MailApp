@@ -1,0 +1,34 @@
+html {
+    width: 100%;
+    height: 100%
+}
+body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 1% 0 2%;
+    box-sizing: border-box;
+}
+
+#content {
+    width: 55%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1%;
+    box-sizing: border-box;
+    box-shadow: -5px 5px 5px #4f4f4f;
+    background-color: #ece7ff;
+}
+
+.main-box-style {
+    border: 1px solid black;
+    background-color: white;
+}
+
+.main-box-style-clickable:active {
+    border-width: 2px;
+}

@@ -1,0 +1,82 @@
+{% extends "base/staff_menu.html" %}
+
+{% block data %}
+    {% csrf_token %}
+    <table class="data-table">
+        <tr>
+            <td>
+                Фамилия
+            </td>
+            <td>
+                Имя
+            </td>
+            <td>
+                Отчество
+            </td>
+            <td>
+                Телефон
+            </td>
+            <td>
+                Адрес
+            </td>
+            <td>
+                Издание
+            </td>
+            <td>
+                Дата создания
+            </td>
+            <td>
+                Длительность
+            </td>
+            <td>
+                Цена
+            </td>
+            <td></td>
+        </tr>
+        {% for request in requests %}
+            <tr>
+                <td>
+                    {{ request.user.last_name }}
+                </td>
+                <td>
+                    {{ request.user.last_name }}
+                </td>
+                <td>
+                    {{ request.user.middle_name }}
+                </td>
+                <td>
+                    {{ request.user.phone }}
+                </td>
+                <td>
+                    {{ request.user.address }}
+                </td>
+                <td>
+                    {{ request.print_edition.name }}
+                </td>
+                <td>
+                    {{ request.created_date }}
+                </td>
+                <td>
+                    {{ request.duration }}
+                </td>
+                <td>
+                    {{ request.price }}
+                </td>
+                <td>
+                    <input type="button" value="Подтвердить" onclick="approve({{ request.id }})">
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <script>
+        const approve = request_id => {
+            $.ajax({
+                method: "POST",
+                url: `http://${window.location.hostname}:${window.location.port}/subscription/approve/${request_id}/`,
+                data: {'csrfmiddlewaretoken': $('input[name="csrfmiddlewaretoken"]').val()}
+            }).done(() => {
+                location.reload();
+            });
+        };
+    </script>
+{% endblock %}

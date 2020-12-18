@@ -1,0 +1,10 @@
+.data-table {
+    border: 1px solid black;
+    background-color: white;
+    border-spacing: 0;
+}
+
+.data-table td {
+    text-align: center;
+    border: 1px solid black;
+}

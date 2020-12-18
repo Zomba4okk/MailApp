@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+
+{% block menu %}
+    <div class="menu staff-menu">
+        <a href="{% url 'requests' %}" class="main-box-style main-box-style-clickable">
+            Список заявок
+        </a>
+        <a href="{% url 'month_subscriptions' %}" class="main-box-style main-box-style-clickable">
+            Подписки на месяц
+        </a>
+        <a href="{% url 'report' %}" class="main-box-style main-box-style-clickable">
+            Ведомость
+        </a>
+        <a href="{% url 'logout' %}" class="main-box-style main-box-style-clickable">
+            Выйти
+        </a>
+    </div>
+{% endblock %}

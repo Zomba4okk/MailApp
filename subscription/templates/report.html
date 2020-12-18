@@ -1,0 +1,29 @@
+{% extends "base/staff_menu.html" %}
+
+{% block data %}
+    <div class="form main-box-style">
+        <h1>Создать ведомость</h1>
+        <p>
+            <label for="id_start_date">От </label>
+            <input type="date" id="id_start_date">
+            <label for="id_end_date">до </label>
+            <input type="date" id="id_end_date">
+        </p>
+        <p>
+            <input type="button" value="Создать ведомость" onclick="onSubmit()">
+        </p>
+        {% csrf_token %}
+    </div>
+    <script>
+        const onSubmit = () => {
+            $.ajax({
+                method: "POST",
+                url: `http://${window.location.hostname}:${window.location.port}/subscription/` +
+                    `generate-report?start_date=${$("#id_start_date").val()}&end_date=${$("#id_end_date").val()}`,
+                data: {'csrfmiddlewaretoken': $('input[name="csrfmiddlewaretoken"]').val()}
+            }).done((response) => {
+                window.open(`http://${window.location.hostname}:${window.location.port}/media/${response['file']}`);
+            });
+        };
+    </script>
+{% endblock %}

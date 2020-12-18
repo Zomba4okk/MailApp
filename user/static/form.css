@@ -1,0 +1,16 @@
+.form {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.form > form > p > label {
+    display: block;
+}
+
+.form > form > p:last-child {
+    text-align: center;
+}
