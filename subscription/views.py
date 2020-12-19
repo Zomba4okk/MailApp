@@ -42,7 +42,7 @@ def approve(request, request_id):
             print_edition_id=request_object.print_edition_id,
             user_id=request_object.user_id,
             duration=request_object.duration,
-            start_date=start_of_month,
+            start_date=start_of_month + relativedelta(months=1),
             end_date=start_of_month + relativedelta(months=request_object.duration + 1),
         )
 
