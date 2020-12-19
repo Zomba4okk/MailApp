@@ -139,7 +139,7 @@ class Report:
 
             for print_edition in PrintEdition.objects.filter(
                     subscriptions_query__start_date__gte=datetime.strptime(start_date, '%Y-%m-%d'),
-                    subscriptions_query__end_date__lte=datetime.strptime(end_date, '%Y-%m-%d'),
+                    subscriptions_query__start_date__lte=datetime.strptime(end_date, '%Y-%m-%d'),
             ).distinct().all():
                 print_edition_profit = 0
                 rows = print_edition.get_report_data(start_date, end_date)

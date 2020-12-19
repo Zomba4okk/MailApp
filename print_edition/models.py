@@ -18,7 +18,7 @@ class PrintEdition(models.Model):
     def get_report_data(self, start_date, end_date):
         return self.subscriptions.filter(
             start_date__gte=datetime.strptime(start_date, '%Y-%m-%d'),
-            end_date__lte=datetime.strptime(end_date, '%Y-%m-%d'),
+            start_date__lte=datetime.strptime(end_date, '%Y-%m-%d'),
         ).values(
             'print_edition__name',
             'start_date',
