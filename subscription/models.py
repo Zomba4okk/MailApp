@@ -21,7 +21,7 @@ class Request(models.Model):
 
     @property
     def status(self):
-        return 'Подтвержден' if self.is_approved else 'Не подтвержден'
+        return 'Подтверждена' if self.is_approved else 'Не подтверждена'
 
 
 class Subscription(models.Model):
